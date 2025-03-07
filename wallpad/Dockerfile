@@ -9,10 +9,10 @@ COPY run.sh /
 COPY js /js
 
 # Install requirements for add-on
-RUN apk add --no-cache jq npm make gcc g++ python3 linux-headers udev && \
+RUN apk add --no-cache gcc g++ make && \ # 필수 빌드 도구만 설치
     npm init -f && \
     npm install mqtt && \
-    npm install serialport
+    npm install serialport --build-from-source=serialport
 
 WORKDIR /share
 
