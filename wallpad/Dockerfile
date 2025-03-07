@@ -9,7 +9,7 @@ COPY run.sh /
 COPY js /js
 
 # Install requirements for add-on
-RUN apk update && apk add --no-cache glibc-compat && \  # glibc-compat 명시적 설치 (수정 1 적용)
+RUN apk add --no-cache glibc-compat && \  # glibc-compat 명시적 설치 (수정 1 적용)
     apk add --no-cache jq npm make gcc g++ python3 linux-headers udev && \
     npm init -f && \
     npm install mqtt && \
